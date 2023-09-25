@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ConsoleUI {
@@ -6,6 +7,10 @@ public class ConsoleUI {
 		String opt = "";
         String PATHEs;
         String PATHRs;
+		ArrayList<ArrayList<String>> RS = new ArrayList<ArrayList<String>>();
+		ArrayList<ArrayList<String>> ES = new ArrayList<ArrayList<String>>();
+		FilesManager filesManager = new FilesManager();
+		VerificacionDArchivo verificacionDArchivo = new VerificacionDArchivo();
         
         
 
@@ -39,6 +44,19 @@ public class ConsoleUI {
                 PATHRs = in.nextLine();
                 String paths = PATHEs+ ","+ PATHRs;
                 FilesManager.savePath(paths);
+				RS = FilesManager.readFiles(PATHRs);
+				ES = FilesManager.readFiles(PATHEs);
+				if (verificacionDArchivo.verificareventos(ES) == true) {
+					if (verificacionDArchivo.verificarrecintos(RS) == true) {
+						System.out.println("Se han cargado los archivos correctamente");
+					} else {
+						System.out.println("No se han cargado los archivos correctamente");
+					}
+				} else {
+					System.out.println("No se han cargado los eventos correctamente");
+				}
+				
+				
 				
 
 
