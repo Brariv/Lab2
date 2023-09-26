@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 
 public class VerificacionDArchivo {
-    ArrayList<ArrayList<String>> Ver;
-    ArrayList<ArrayList<String>> Correctos;
-    ArrayList<ArrayList<String>> Errores;
+    ArrayList<ArrayList<String>> Ver = new ArrayList<ArrayList<String>>();
+    ArrayList<ArrayList<String>> CorrectosES = new ArrayList<ArrayList<String>>();
+    ArrayList<ArrayList<String>> ErroresES = new ArrayList<ArrayList<String>>();
+    ArrayList<ArrayList<String>> CorrectosRS = new ArrayList<ArrayList<String>>();
+    ArrayList<ArrayList<String>> ErroresRS = new ArrayList<ArrayList<String>>();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -28,14 +30,14 @@ public class VerificacionDArchivo {
                         int dur = Integer.parseInt(Ver.get(i).get(5));
                         int asis = Integer.parseInt(Ver.get(i).get(6));
 
-                        Correctos.add(Ver.get(i));
+                        CorrectosES.add(Ver.get(i));
 
                     }catch(Exception e){
-                        Errores.add(Ver.get(i));
+                        ErroresES.add(Ver.get(i));
                     }
                 }
                 else{
-                    Errores.add(Ver.get(i));
+                    ErroresES.add(Ver.get(i));
                 }
             }
             
@@ -57,14 +59,14 @@ public class VerificacionDArchivo {
                         int idp = Integer.parseInt(Ver.get(i).get(0));
                         int idr = Integer.parseInt(Ver.get(i).get(2));
                         int cap = Integer.parseInt(Ver.get(i).get(3));
-                        Correctos.add(Ver.get(i));
+                        CorrectosRS.add(Ver.get(i));
 
                     }catch(Exception e){
-                        Errores.add(Ver.get(i));
+                        ErroresRS.add(Ver.get(i));
                     }
                 }
                 else{
-                    Errores.add(Ver.get(i));
+                    ErroresRS.add(Ver.get(i));
                 }
             }
             
@@ -72,5 +74,21 @@ public class VerificacionDArchivo {
         }
         return true;
 
+    }
+
+    public ArrayList<ArrayList<String>> getCorrectosES() {
+        return CorrectosES;
+    }
+
+    public ArrayList<ArrayList<String>> getErroresES() {
+        return ErroresES;
+    }
+
+    public ArrayList<ArrayList<String>> getCorrectosRS() {
+        return CorrectosRS;
+    }
+
+    public ArrayList<ArrayList<String>> getErroresRS() {
+        return ErroresRS;
     }
 }

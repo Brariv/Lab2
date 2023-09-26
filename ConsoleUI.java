@@ -9,7 +9,10 @@ public class ConsoleUI {
         String PATHRs;
 		ArrayList<ArrayList<String>> RS = new ArrayList<ArrayList<String>>();
 		ArrayList<ArrayList<String>> ES = new ArrayList<ArrayList<String>>();
-		FilesManager filesManager = new FilesManager();
+		ArrayList<ArrayList<String>> CorrectosES = new ArrayList<ArrayList<String>>();
+    	ArrayList<ArrayList<String>> ErroresES = new ArrayList<ArrayList<String>>();
+    	ArrayList<ArrayList<String>> CorrectosRS = new ArrayList<ArrayList<String>>();
+    	ArrayList<ArrayList<String>> ErroresRS = new ArrayList<ArrayList<String>>();
 		VerificacionDArchivo verificacionDArchivo = new VerificacionDArchivo();
         
         
@@ -49,6 +52,10 @@ public class ConsoleUI {
 				if (verificacionDArchivo.verificareventos(ES) == true) {
 					if (verificacionDArchivo.verificarrecintos(RS) == true) {
 						System.out.println("Se han cargado los archivos correctamente");
+						CorrectosES = verificacionDArchivo.getCorrectosES();
+						ErroresES = verificacionDArchivo.getErroresES();
+						CorrectosRS = verificacionDArchivo.getCorrectosRS();
+						ErroresRS = verificacionDArchivo.getErroresRS();
 					} else {
 						System.out.println("No se han cargado los archivos correctamente");
 					}

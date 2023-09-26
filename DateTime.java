@@ -32,5 +32,6 @@ public class DateTime {
 
     }
 
+    //Esta clase solo esta aqui para ensenar como funciona el formato de tiempo y fecha
     
 
